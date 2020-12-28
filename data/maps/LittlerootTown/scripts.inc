@@ -264,7 +264,7 @@ LittlerootTown_EventScript_FatMan:: @ 81E8022
 
 LittlerootTown_EventScript_Boy:: @ 81E802B
 	msgbox CustomGivemonTest_Text, MSGBOX_NPC
-    givemon SPECIES_SWAMPERT, 10, ITEM_NONE
+    givecustommon SPECIES_MUDKIP, 5, ITEM_NONE, ITEM_PREMIER_BALL, NATURE_ADAMANT, 1
 	end
 
 LittlerootTown_EventScript_Twin:: @ 81E8034

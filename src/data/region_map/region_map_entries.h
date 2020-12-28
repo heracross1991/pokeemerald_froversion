@@ -198,6 +198,13 @@ static const u8 sMapName_MarineCave[] = _("MARINE CAVE");
 static const u8 sMapName_TerraCave[] = _("TERRA CAVE");
 static const u8 sMapName_DesertUnderpass[] = _("DESERT UNDERPASS");
 static const u8 sMapName_TrainerHill[] = _("TRAINER HILL");
+static const u8 sMapName_LakeMeadVillage[] =_("Lake Mead Village");
+static const u8 sMapName_JagowWay[] =_("Jagow Way");
+static const u8 sMapName_WalmoreTown[] =_("Walmore Town");
+static const u8 sMapName_JagowWoods[] =_("Jagow Woods");
+static const u8 sMapName_LakeMead[] =_("Lake Mead");
+static const u8 sMapName_JagowWay2[] =_("Jagow Way");
+static const u8 sMapName_SummitCity[] =_("Summit City");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_LITTLEROOT_TOWN]            = { 4, 11, 1, 1, sMapName_LittlerootTown},
@@ -412,7 +419,13 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_DESERT_UNDERPASS]           = { 2,  0, 1, 1, sMapName_DesertUnderpass},
     [MAPSEC_ALTERING_CAVE]              = { 6,  8, 1, 1, sMapName_AlteringCave},
     [MAPSEC_NAVEL_ROCK]                 = { 0,  0, 1, 1, sMapName_NavelRock},
-    [MAPSEC_TRAINER_HILL]               = { 8,  4, 1, 1, sMapName_TrainerHill}
+    [MAPSEC_TRAINER_HILL]               = { 8,  4, 1, 1, sMapName_TrainerHill},
+    [MAPSEC_LAKE_MEAD_VILLAGE]		   = { 4, 12, 1, 1, sMapName_LakeMeadVillage},
+	[MAPSEC_JAGOW_WAY]		   		   = { 4, 12, 1, 1, sMapName_JagowWay},
+    [MAPSEC_WALMORE_TOWN]		   	   = { 4, 12, 1, 1, sMapName_WalmoreTown},
+    [MAPSEC_JAGOW_WOODS]		   	   = { 4, 12, 1, 1, sMapName_JagowWoods},
+    [MAPSEC_LAKE_MEAD]                 = { 4, 12, 1, 1, sMapName_LakeMead},
+    [MAPSEC_SUMMIT_CITY]               = { 4, 12, 1, 1, sMapName_SummitCity},
 };
 
 #endif //GUARD_DATA_REGION_MAP_REGION_MAP_ENTRIES_H
