@@ -263,7 +263,8 @@ LittlerootTown_EventScript_FatMan:: @ 81E8022
 	end
 
 LittlerootTown_EventScript_Boy:: @ 81E802B
-	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC
+	msgbox CustomGivemonTest_Text, MSGBOX_NPC
+    givemon SPECIES_SWAMPERT, 10, ITEM_NONE
 	end
 
 LittlerootTown_EventScript_Twin:: @ 81E8034
@@ -1208,3 +1209,6 @@ Text_NicCageQuizWon:
 
 TestText_GoodMovie:
 	.string "Good Movie$"
+
+CustomGivemonTest_Text:
+	.string "Take this CUSTOM SWAMPERT$"
