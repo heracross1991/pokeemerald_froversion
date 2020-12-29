@@ -841,3 +841,14 @@ gTileset_General2::
 	.4byte gMetatiles_General2
 	.4byte gMetatileAttributes_General2
 	.4byte NULL
+
+	.align 2
+gTileset_LakeMeadVillage::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_LakeMeadVillage
+	.4byte gTilesetPalettes_LakeMeadVillage
+	.4byte gMetatiles_LakeMeadVillage
+	.4byte gMetatileAttributes_LakeMeadVillage
+	.4byte NULL

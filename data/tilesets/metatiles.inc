@@ -565,3 +565,10 @@ gMetatiles_General2::
 	.align 1
 gMetatileAttributes_General2::
 	.incbin "data/tilesets/primary/general2/metatile_attributes.bin"
+	.align 1
+gMetatiles_LakeMeadVillage::
+	.incbin "data/tilesets/secondary/lakemeadvillage/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_LakeMeadVillage::
+	.incbin "data/tilesets/secondary/lakemeadvillage/metatile_attributes.bin"
