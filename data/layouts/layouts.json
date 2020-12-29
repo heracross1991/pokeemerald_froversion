@@ -4420,6 +4420,16 @@
       "secondary_tileset": "gTileset_LakeMeadVillage",
       "border_filepath": "data/layouts/LakeMeadVillage/border.bin",
       "blockdata_filepath": "data/layouts/LakeMeadVillage/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_MAP",
+      "name": "TestMap_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/TestMap/border.bin",
+      "blockdata_filepath": "data/layouts/TestMap/map.bin"
     }
   ]
 }

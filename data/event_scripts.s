@@ -1064,3 +1064,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/LakeMeadVillage/scripts.inc"
+
+	.include "data/maps/TestMap/scripts.inc"
