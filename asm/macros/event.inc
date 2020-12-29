@@ -1638,7 +1638,7 @@
     .byte 0xe4
     .endm
 
-    .macro givecustommon species:req, level:req, item, ball, nature, abilityNum, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, isShiny
+    .macro givecustommon species:req, level:req, item, ball, nature, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, isShiny
     .byte 0xe3
     .2byte \species
     .byte \level
@@ -1656,11 +1656,6 @@
         .byte NUM_NATURES
     .else
         .byte \nature
-    .endif
-    .ifb \abilityNum
-        .byte 3
-    .else
-        .byte \abilityNum
     .endif
     @evs
     .ifb \hpEv

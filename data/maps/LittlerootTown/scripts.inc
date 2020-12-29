@@ -264,7 +264,8 @@ LittlerootTown_EventScript_FatMan:: @ 81E8022
 
 LittlerootTown_EventScript_Boy:: @ 81E802B
 	msgbox CustomGivemonTest_Text, MSGBOX_NPC
-    givecustommon SPECIES_MUDKIP, 5, ITEM_NONE, ITEM_PREMIER_BALL, NATURE_ADAMANT, 1
+    	givecustommon SPECIES_MUDKIP, 10, ITEM_POTION, ITEM_PREMIER_BALL, NATURE_HARDY, 252, 252, 4, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_BLIZZARD, MOVE_EMBER, MOVE_TACKLE, MOVE_LEER, 1
+
 	end
 
 LittlerootTown_EventScript_Twin:: @ 81E8034
