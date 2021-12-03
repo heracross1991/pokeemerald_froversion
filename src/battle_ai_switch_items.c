@@ -62,6 +62,7 @@ s32 ScoreMatchup(u32 playerSpecies, u32 opponentSpecies)
 }
 
 bool8 ShouldSwitchIfCountered(void)
+{
 int i;
 u32 playerSpecies, opponentSpecies;
 s32 score;
@@ -84,7 +85,7 @@ for (i = 0; i < PARTY_SIZE; i++)
         return FALSE;
     }
     }
-    
+}
 }
 
 void GetAIPartyIndexes(u32 battlerId, s32 *firstId, s32 *lastId)
