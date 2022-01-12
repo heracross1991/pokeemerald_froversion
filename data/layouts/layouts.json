@@ -5410,6 +5410,16 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/NewMap2/border.bin",
       "blockdata_filepath": "data/layouts/NewMap2/map.bin"
+    },
+    {
+      "id": "LAYOUT_GRAND_ISLAND_ROUTE",
+      "name": "GrandIslandRoute_Layout",
+      "width": 20,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/GrandIslandRoute/border.bin",
+      "blockdata_filepath": "data/layouts/GrandIslandRoute/map.bin"
     }
   ]
 }

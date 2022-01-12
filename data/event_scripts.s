@@ -1265,3 +1265,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/HomesteadNorth_Pokecenter/scripts.inc"
 
 	.include "data/maps/NewMap2/scripts.inc"
+
+	.include "data/maps/GrandIslandRoute/scripts.inc"

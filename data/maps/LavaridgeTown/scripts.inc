@@ -451,3 +451,22 @@ LavaridgeCity_Pokemart_Amneet:
 	.2byte ITEM_NONE
 	release
 	end
+
+
+/////////////////////////////////////////
+//////////////MAGM5/////////////////////
+///////////////////////////////////////
+
+
+MAGM5_EventScript_StopPlayerFromLeaving::
+	lockall
+	msgbox MAGM5_Text_PlayerCantLeave, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeftOneStep
+	releaseall
+	end
+
+
+
+MAGM5_Text_PlayerCantLeave:
+	.string "You shouldn't leave yet!$"
+

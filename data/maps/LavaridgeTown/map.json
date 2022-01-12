@@ -204,6 +204,60 @@
       "var": "0",
       "var_value": "0",
       "script": "LavaridgeTown_EventScript_HotSpringsTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MAGM5_EventScript_StopPlayerFromLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MAGM5_EventScript_StopPlayerFromLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MAGM5_EventScript_StopPlayerFromLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MAGM5_EventScript_StopPlayerFromLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MAGM5_EventScript_StopPlayerFromLeaving"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "MAGM5_EventScript_StopPlayerFromLeaving"
     }
   ],
   "bg_events": [

@@ -64,6 +64,10 @@ Common_Movement_WalkInPlaceLeft: @ 82725B6
 	walk_in_place_left
 	step_end
 
+Common_Movement_WalkLeftOneStep: @ 82725B6
+	walk_left
+	step_end
+
 Common_Movement_WalkInPlaceRight: @ 82725B8
 	walk_in_place_right
 	step_end
