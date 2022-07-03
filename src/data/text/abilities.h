@@ -552,6 +552,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_DARK_TETHER] = _("Dark Tether"),
     [ABILITY_ZEN_MODE] = _("Zen Mode"),
     [ABILITY_ABYSSAL] = _("Abyssal"),
+    [ABILITY_TARGET_ALL] = _("Target All"), //FIXME: Naming
 };
 
 const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
@@ -840,4 +841,5 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_DARK_TETHER] = sDarkTetherDescription,
     [ABILITY_TIME_STOP] = sTimeStopDescription,
     [ABILITY_ABYSSAL] = sSandVeilDescription,
+    [ABILITY_TARGET_ALL] = sSandVeilDescription, //FIXME: Naming
 };

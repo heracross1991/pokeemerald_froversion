@@ -2814,7 +2814,7 @@ static void Cmd_get_considered_move_split(void)
 
 static void Cmd_get_considered_move_target(void)
 {
-    AI_THINKING_STRUCT->funcResult = gBattleMoves[AI_THINKING_STRUCT->moveConsidered].target;
+    AI_THINKING_STRUCT->funcResult = GetBattleMoveTargetFlags(AI_THINKING_STRUCT->moveConsidered, GetBattlerAbility(sBattler_AI));
     gAIScriptPtr += 1;
 }
 
