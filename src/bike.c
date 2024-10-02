@@ -1058,16 +1058,17 @@ s16 GetPlayerSpeed(void)
         else
         {    
             return SPEED_FASTER;
-            else
-                return SPEED_NORMAL;
         }
+    }
+
     else if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_DASH))
     {
-        return PLAYER_SPEED_FAST;
+        return SPEED_FAST;
     }
+
     else
     {
-        return PLAYER_SPEED_NORMAL;
+        return SPEED_NORMAL;
     }
 }
 

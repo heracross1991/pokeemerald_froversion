@@ -2473,6 +2473,6 @@ bool8 ScrCmd_pokemartoutfit(struct ScriptContext *ctx)
     CreateOutfitShopMenu(ptr);
     #endif // MUDSKIP_SHOP_UI
 
-    ScriptContext_Stop();
+    ScriptContext1_Stop();
     return TRUE;
 }

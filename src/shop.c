@@ -516,7 +516,7 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *nam
 {
     if (gMartInfo.martType == MART_TYPE_NORMAL)
         CopyItemName(item, name);
-    else if (sMartInfo.martType == MART_TYPE_OUTFIT)
+    else if (gMartInfo.martType == MART_TYPE_OUTFIT)
         BufferOutfitStrings(name, item, OUTFIT_BUFFER_NAME);
     else
         StringCopy(name, gDecorations[item].name);
@@ -542,7 +542,7 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     {
         if (gMartInfo.martType == MART_TYPE_NORMAL)
             description = ItemId_GetDescription(item);
-        else if (sMartInfo.martType == MART_TYPE_OUTFIT)
+        else if (gMartInfo.martType == MART_TYPE_OUTFIT)
             description = gOutfits[item].name; // the actual desc is a bit too long oops
         else
             description = gDecorations[item].description;
@@ -570,7 +570,7 @@ static void BuyMenuPrintPriceInList(u8 windowId, s32 item, u8 y)
                 STR_CONV_MODE_LEFT_ALIGN,
                 5);
         }
-        else if (sMartInfo.martType == MART_TYPE_OUTFIT)
+        else if (gMartInfo.martType == MART_TYPE_OUTFIT)
         {
             ConvertIntToDecimalStringN(gStringVar1, GetOutfitPrice(item), STR_CONV_MODE_LEFT_ALIGN, 5);
         }
@@ -635,10 +635,10 @@ static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
             gSprites[spriteId].pos2.y = 88;
         }
     }
-    else if (sMartInfo.martType == MART_TYPE_OUTFIT)
+    else if (gMartInfo.martType == MART_TYPE_OUTFIT)
     {
         u16 gfxId = GetPlayerAvatarGraphicsIdByOutfitStateIdAndGender(item, PLAYER_AVATAR_STATE_NORMAL, gSaveBlock2Ptr->playerGender);
-        spriteId = CreateObjectGraphicsSprite(gfxId, SpriteCallbackDummy, 20, 80, 0);
+        spriteId = AddPseudoObjectEvent(gfxId, SpriteCallbackDummy, 20, 80, 0);
         if (spriteId != MAX_SPRITES)
         {
             *spriteIdPtr = spriteId;
@@ -972,8 +972,8 @@ static void Task_BuyMenu(u8 taskId)
             {
                 gShopDataPtr->totalCost = (ItemId_GetPrice(itemId) >> GetPriceReduction(POKENEWS_SLATEPORT));
             }
-            else if (sMartInfo.martType == MART_TYPE_OUTFIT)
-                sShopData->totalCost = GetOutfitPrice(itemId);
+            else if (gMartInfo.martType == MART_TYPE_OUTFIT)
+                gShopDataPtr->totalCost = GetOutfitPrice(itemId);
             else
             {
                 gShopDataPtr->totalCost = gDecorations[itemId].price;
@@ -981,7 +981,7 @@ static void Task_BuyMenu(u8 taskId)
 
             if (GetOutfitStatus(itemId))
                 BuyMenuDisplayMessage(taskId, gText_ThatOutfitIsSoldOut, BuyMenuReturnToItemList);
-            else if (!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost))
+            else if (!IsEnoughMoney(&gSaveBlock1Ptr->money, gShopDataPtr->totalCost))
             {
                 BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
             }
@@ -1000,10 +1000,10 @@ static void Task_BuyMenu(u8 taskId)
                         BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany, Task_BuyHowManyDialogueInit);
                     }
                 }
-                else if (sMartInfo.martType == MART_TYPE_OUTFIT)
+                else if (gMartInfo.martType == MART_TYPE_OUTFIT)
                 {
                     BufferOutfitStrings(gStringVar1, itemId, OUTFIT_BUFFER_NAME);
-                    ConvertIntToDecimalStringN(gStringVar2, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
+                    ConvertIntToDecimalStringN(gStringVar2, gShopDataPtr->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
                     StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1OutfitThatllBeVar2);
                     BuyMenuDisplayMessage(taskId, gStringVar4, BuyMenuConfirmPurchase);
                 }
@@ -1113,7 +1113,7 @@ static void BuyMenuTryMakePurchase(u8 taskId)
             BuyMenuDisplayMessage(taskId, gText_NoMoreRoomForThis, BuyMenuReturnToItemList);
         }
     }
-    else if (sMartInfo.martType == MART_TYPE_OUTFIT)
+    else if (gMartInfo.martType == MART_TYPE_OUTFIT)
     {
         UnlockOutfit(tItemId);
         BuyMenuDisplayMessage(taskId, gText_HereIsTheOutfitThankYou, BuyMenuSubtractMoney);
@@ -1149,7 +1149,7 @@ static void BuyMenuSubtractMoney(u8 taskId)
     {
         gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;
     }
-    else if (sMartInfo.martType == MART_TYPE_OUTFIT)
+    else if (gMartInfo.martType == MART_TYPE_OUTFIT)
         gTasks[taskId].func = Task_ReturnToItemListAfterOutfitPurchase;
     else
     {
@@ -1293,5 +1293,14 @@ void CreateOutfitShopMenu(const u16 *itemsForSale)
 {
     CreateShopMenu(MART_TYPE_OUTFIT);
     SetShopItemsForSale(itemsForSale);
-    SetShopMenuCallback(ScriptContext_Enable);
+    SetShopMenuCallback(EnableBothScriptContexts);
+}
+
+static void Task_ReturnToItemListAfterOutfitPurchase(u8 taskId)
+{
+    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        BuyMenuReturnToItemList(taskId);
+    }
 }

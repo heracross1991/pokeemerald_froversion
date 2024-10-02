@@ -884,7 +884,7 @@ static void PlayerAvatarTransition_Surfing(struct ObjectEvent *objEvent)
 static void PlayerAvatarTransition_Underwater(struct ObjectEvent *objEvent)
 {
     SetPlayerAvatarTransitionState(objEvent, PLAYER_AVATAR_STATE_UNDERWATER);
-    objEvent->fieldEffectSpriteId = StartUnderwaterSurfBlobBobbing(objEvent->spriteId);
+    objEvent->fieldEffectSpriteId = DoBobbingFieldEffect(objEvent->spriteId);
 }
 
 static void PlayerAvatarTransition_ReturnToField(struct ObjectEvent *objEvent)
@@ -1349,7 +1349,7 @@ static u8 GetPlayerAvatarStateTransitionByGraphicsId(u16 graphicsId)
     return PLAYER_AVATAR_FLAG_ON_FOOT;
 }
 
-u8 GetPlayerAvatarGraphicsIdByCurrentState(void)
+u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
 {
     u8 i;
     u8 flags = gPlayerAvatar.flags;
@@ -1419,7 +1419,8 @@ static void SetPlayerAvatarAnimation(u32 playerAnimId, u32 animNum)
 
 void SetPlayerAvatarFieldMove(void)
 {
-    SetPlayerAvatarAnimation(PLAYER_AVATAR_GFX_FIELD_MOVE, ANIM_FIELD_MOVE);
+    ObjectEventSetGraphicsId(&gObjectEvents[gPlayerAvatar.objectEventId], GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_CONTROLLABLE));
+    StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], 0);
 }
 
 void PlayerUseAcroBikeOnBumpySlope(u8 direction)

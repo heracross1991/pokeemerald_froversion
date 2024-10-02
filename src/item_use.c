@@ -261,7 +261,7 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
         Overworld_ChangeMusicTo(MUS_CYCLING);
     }
     ScriptUnfreezeObjectEvents();
-    UnlockPlayerFieldControls();
+    ScriptContext2_Disable();
     DestroyTask(taskId);
 }
 
@@ -1437,13 +1437,13 @@ void ItemUseOutOfBattle_Diary(u8 taskId)
 
 void ItemUseOutOfBattle_OutfitBox(u8 taskId)
 {
-    if (MenuHelpers_IsLinkActive() == TRUE)
+    if (MenuHelpers_LinkSomething() == TRUE)
     {
         DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
     }
     else if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
     {
-        gBagMenu->newScreenCallback = CB2_OpenOutfitBoxFromBag;
+        gBagMenu->exitCallback = CB2_OpenOutfitBoxFromBag;
         Task_FadeAndCloseBagMenu(taskId);
     }
     else

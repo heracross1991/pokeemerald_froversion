@@ -35,6 +35,7 @@
 #include "confetti_util.h"
 #include "constants/rgb.h"
 #include "outfit_menu.h"
+#include "battle.h"
 
 #define HALL_OF_FAME_MAX_TEAMS 50
 #define TAG_CONFETTI 1001

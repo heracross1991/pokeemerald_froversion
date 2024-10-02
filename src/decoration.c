@@ -2286,7 +2286,7 @@ static void SetUpPuttingAwayDecorationPlayerAvatar(void)
     sDecor_CameraSpriteObjectIdx1 = gSprites[gFieldCamera.spriteId].data[0];
     LoadPlayerSpritePalette();
     gFieldCamera.spriteId = CreateSprite(&sPuttingAwayCursorSpriteTemplate, 120, 80, 0);
-    sDecor_CameraSpriteObjectIdx2 = CreateObjectGraphicsSprite(gfxId, SpriteCallbackDummy, 136, 72, 0);
+    sDecor_CameraSpriteObjectIdx2 = AddPseudoObjectEvent(gfxId, SpriteCallbackDummy, 136, 72, 0);
 
     gSprites[sDecor_CameraSpriteObjectIdx2].oam.priority = 1;
     DestroySprite(&gSprites[sDecor_CameraSpriteObjectIdx1]);
