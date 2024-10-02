@@ -990,6 +990,17 @@ u16 UnlockOutfit(u16 id)
     return 0;
 }
 
+void UnlockAllOutfits(void)
+{
+    u8 i;
+    for (i = 0; i < OUTFIT_COUNT; i++)
+    {
+        u16 *ptr = GetOutfitPointer(i);
+        if (ptr)
+            *ptr |= 1 << (i & 7);
+    }
+}
+
 u16 ToggleOutfit(u16 id)
 {
     u16 *ptr = GetOutfitPointer(id);
