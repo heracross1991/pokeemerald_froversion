@@ -339,6 +339,7 @@ SECTIONS {
         src/map_preview.o(.text);
         src/mugshot.o(.text);
         src/mgba_printf.o(.text);
+        src/outfit_menu.o(.text);
     } =0
 
     script_data :
